@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "jest-junit": "^16.0.0"
+  },
+  "scripts": {
+    "test": "jest --ci --reporters=jest-junit --reporters=default",
+    "cypress:open":"cypress open"
+
+  },
+  "dependencies": {
+    "cypress": "^12.17.2"
+  }
+}

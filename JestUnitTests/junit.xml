@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="6" failures="0" errors="0" time="0.248">
+  <testsuite name="Tests Calculator Add Function" errors="0" failures="0" skipped="0" timestamp="2023-07-16T19:50:29" time="0.199" tests="6">
+    <testcase classname="Tests Calculator Add Function Add two positive numbers" name="Tests Calculator Add Function Add two positive numbers" time="0.002">
+    </testcase>
+    <testcase classname="Tests Calculator Add Function Add a negative number and a positive number" name="Tests Calculator Add Function Add a negative number and a positive number" time="0">
+    </testcase>
+    <testcase classname="Tests Calculator Multiply Function Multiply Two Positive numbers" name="Tests Calculator Multiply Function Multiply Two Positive numbers" time="0">
+    </testcase>
+    <testcase classname="Tests Calculator Multiply Function Multiply a negative and a positive number" name="Tests Calculator Multiply Function Multiply a negative and a positive number" time="0.001">
+    </testcase>
+    <testcase classname="Tests Calculator Multiply Function Multiply two negative numbers" name="Tests Calculator Multiply Function Multiply two negative numbers" time="0">
+    </testcase>
+    <testcase classname="Tests Calculator Subtract Function Subtract two positive numbers" name="Tests Calculator Subtract Function Subtract two positive numbers" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>
