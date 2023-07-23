@@ -1,4 +1,4 @@
-# Cypress RWA setup
+# Cypress Blank project setup
 
 1. Install [NodeJS](https://nodejs.org/en)
 1. Install [NVM For Windows](https://github.com/coreybutler/nvm-windows/releases)
@@ -11,13 +11,39 @@
     nvm install 16.16.0
     nvm use 16.16.0
     ```
+1. Create project folder & change directory.
+1. Install Cypress
+    ```Powershell
+    npm install cypress --save-dev
+    ```
+1. Install the file upload plugin
+    ```Powershell
+    npm install --save-dev cypress-file-upload
+    ```
+
+1. Edit the package.json file and add a scripts node
+    ```
+    "scripts": {
+        "test": "jest --ci --reporters=jest-junit --reporters=default",
+        "cypress:open": "cypress open"
+    }
+    ```
+1. Run the Cypress package
+    ```Powershell
+    npm run cypress:open
+    ```
+
+
+# Use the cypress RWA
+1. Clone the app from github
+
 1. Build & run the Cypress RWA 
     ```powershell
     yarn
     yarn dev
     ```
 
-1. Start the Cypress IDE
+1. Start another powershell prompt and run the Cypress IDE
     ```Powershell
     cd CypressRWA\cypress-realworld-app
     yarn cypress:open
