@@ -1,11 +1,7 @@
-const { defineConfig } = require("cypress");
 const sql = require('mssql');
 
-module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-      on('task', {
+module.exports = (on, config) => {
+    on('task', {
         async queryDatabase(query) {
 
 
@@ -40,12 +36,10 @@ module.exports = defineConfig({
                 // expect(result.recordset[0]).toHaveProperty('Id');
                 // expect(result.recordset[0]).toHaveProperty('ScanDate');
                 pool.close();
-                return result;
+                return result.recordset;
             } catch (err) {
                 console.error('SQL error', err);
             }
         }
-    });      
-    },
-  },
-});
+    });
+}

@@ -5,10 +5,11 @@
     "jest-junit": "^16.0.0"
   },
   "scripts": {
-    "test": "jest --ci --reporters=jest-junit --reporters=default",
+    "test": "jest --ci --reporters=jest-junit --reporters=default --detectOpenHandles",
     "cypress:open": "cypress open"
   },
   "dependencies": {
-    "cypress": "^12.17.2"
+    "cypress": "^12.17.2",
+    "mssql": "^9.1.1"
   }
 }

@@ -6,36 +6,25 @@ https://dev.azure.com/HillsHouse/UnitTests
 
 [NodeJS installation page](https://nodejs.org/en/download)
 
+## Restore packages
+```powershell
+npm install
+```
+
+# From Scratch
 
 ## Install Jest :
+Setting up from a blank slate.
 
 ```powershell
-npm install --save-dev jest
+npm install jest --save-dev
+```
+## Install SQL Server 
+```powershell
+npm install mssql --save-dev
 ```
 
 ## Run unit tests from command line
 ```powershell
 npm test
 ```
-
-The output should be :
-
-```
-> test
-> jest
-
- PASS  ./tests.spec.js
-  Tests Calculator Add Function
-    √ 4+5 == 9 (2 ms)
-    √ -4 + 10 == 5
-  Tests Calculator Multiply Function
-    √ 4+5 == 9 (1 ms)
-    √ -4 + 10 == 5
-
-Test Suites: 1 passed, 1 total
-Tests:       4 passed, 4 total
-Snapshots:   0 total
-Time:        0.394 s
-Ran all test suites.
-```
-

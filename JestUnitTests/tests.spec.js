@@ -1,38 +1,45 @@
 const addFunctions = require('./addTwoNumbers.js');
 const multiplyFunctions = require('./multiplyTwoNumbers.js');
 const subtractFunctions = require('./subtractTwoNumbers.js');
+const sql = require('mssql');
 
-describe('Tests Calculator Add Function', () => {
-  it('Add two positive numbers', () => {
-    expect(addFunctions.addTwoNumbers(4,5)).toBe(9);
-  })
-  it('Add a negative number and a positive number', () => {
-    expect(addFunctions.addTwoNumbers(-4,10)).toBe(6);
-  })
-})
+describe('Database Test', () => {
+    it('should retrieve a single row from the database', async () => {
+        // Setup config for your database
+        const config = {
+            user: 'dapruser',
+            password: 'ySwp0aGAmhI1jns0wgkb5zmH9iuW7AMQ',
+            server: 'localhost', 
+            database: 'sqldb-receipt-service',
+            options: {
+              encrypt: false, // Local SQL Server instance doesn't require encryption.
+              trustServerCertificate: true
+            }
+        };
+        
+        // Create connection pool
+        const pool = new sql.ConnectionPool(config);
+        const poolConnect = pool.connect();
 
-describe('Tests Calculator Multiply Function', () => {
-  it('Multiply Two Positive numbers', () => {
-    expect(multiplyFunctions.multiplyTwoNumbers(4,5)).toBe(20);
-  })
-  it('Multiply a negative and a positive number', () => {
-    expect(multiplyFunctions.multiplyTwoNumbers(-4,10)).toBe(-40);
-  })
-
-  it('Multiply two negative numbers',() =>{
-    expect(multiplyFunctions.multiplyTwoNumbers(-2,-10)).toBe(20);
-  })
-})
-
-//
-// Subtract tests
-//
-
-describe('Tests Calculator Subtract Function', () => {
-  it('Subtract two positive numbers', () => {
-    expect(subtractFunctions.subtractTwoNumbers(10,3)).toBe(7);
-  })
-})
-
-
+        // Errors handling
+        pool.on('error', err => {
+            // ... error handler
+            console.log(err);
+        });
+        
+        try {
+            await poolConnect; // ensures that the pool has been created
+            const request = pool.request(); // or: new sql.Request(pool1)
+            const result = await request.query('SELECT TOP 1 * FROM dbo.Receipts');
+            console.log(result.recordset[0]); // print the first record of the recordset
+            
+            // Now you can run your Jest assertions
+            expect(result.recordset[0]).toHaveProperty('Id');
+            expect(result.recordset[0]).toHaveProperty('ScanDate');
+            pool.close();
+        } catch (err) {
+            console.error('SQL error', err);
+        }
+    });
+});
 
