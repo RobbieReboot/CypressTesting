@@ -63,7 +63,7 @@
 1. Read the [Cypress Intro documentation](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress)
 1. Maybe do the [Cypress Testing your first application course](https://learn.cypress.io/testing-your-first-application)
 
-# Standalon Cypress/Jest tests
+# Standalone Cypress/Jest tests
 
 1. change directory
 
